@@ -1,0 +1,14 @@
+{% if form.errors %}
+    <p>  Your username and password does not match</p>
+{% else %}
+    <p>Please log in</p>
+{% endif %}
+
+<div class="login-form">
+    <form action="{% url 'home:adminlogin' %}" method="post">
+        {{ form.as_p }}{% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}" />
+        <a href="home_redirect">Home</a>
+        <p><input type="submit"  value="Log-in"></p>
+    </form>
+</div>
