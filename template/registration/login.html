@@ -6,7 +6,8 @@
 
 <div class="login-form">
     <form action="{% url 'home:adminlogin' %}" method="post">
-        {{ form.as_p }}{% csrf_token %}
+        {% csrf_token %}
+        {{ form.as_p }}
         <input type="hidden" name="next" value="{{ next }}" />
         <a href="home_redirect">Home</a>
         <p><input type="submit"  value="Log-in"></p>
